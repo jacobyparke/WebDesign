@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOBE KOLOR</title>
+    <link rel="stylesheet" href="Styles/styles.css">
+
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        background: linear-gradient(
+            120deg,
+            #ff0000,
+            #ff6a00,
+            #ffd000,
+            #00a84f,
+            #008cff,
+            #4b00ff,
+            #9b00ff
+        );
+        background-size: 500% 500%;
+        animation: rainbow 35s ease-in-out infinite;
+    }
+
+    @keyframes rainbow {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        25% {
+            background-position: 50% 100%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        75% {
+            background-position: 50% 0%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .hero {
+        min-height: 65vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .marquee {
+        width: 140%;
+        transform: rotate(-8deg);
+        overflow: hidden;
+    }
+
+    .marquee-track {
+        display: flex;
+        width: max-content;
+        animation: titleScroll 18s linear infinite;
+    }
+
+    .marquee-track span {
+        font-size: clamp(5rem, 14vw, 13rem);
+        font-weight: 900;
+        letter-spacing: -0.08em;
+        white-space: nowrap;
+        color: white;
+
+        text-shadow:
+            2px 2px 0 rgba(0, 0, 0, 0.25),
+            4px 4px 0 rgba(0, 0, 0, 0.2),
+            6px 6px 0 rgba(0, 0, 0, 0.15),
+            10px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes titleScroll {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        padding: 2rem;
+    }
+
+    .social-links a,
+    .pinterest-link {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 0.15em;
+        font-size: 1rem;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .social-links a:hover,
+    .pinterest-link:hover {
+        transform: translateY(-3px);
+        opacity: 0.7;
+    }
+
+    .mood-board {
+        padding: 5rem 0 7rem;
+        text-align: center;
+    }
+
+    .mood-board h2 {
+        font-size: clamp(2rem, 5vw, 4rem);
+        margin-bottom: 2.5rem;
+        letter-spacing: 0.08em;
+        text-shadow:
+            2px 2px 0 rgba(0, 0, 0, 0.25),
+            5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .image-marquee {
+        width: 100%;
+        overflow: hidden;
+        padding: 1rem 0 2rem;
+    }
+
+    .image-track {
+        display: flex;
+        gap: 1.5rem;
+        width: max-content;
+        animation: imageScroll 30s linear infinite;
+    }
+
+    .placeholder {
+        width: 220px;
+        height: 280px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border: 2px solid white;
+        background: rgba(255, 255, 255, 0.15);
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes imageScroll {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    .pinterest-link {
+        display: inline-block;
+        margin-top: 2rem;
+        border-bottom: 2px solid white;
+        padding-bottom: 0.4rem;
+    }
+
+    @media (max-width: 700px) {
+        .social-links {
+            gap: 1rem;
+        }
+
+        .placeholder {
+            width: 170px;
+            height: 220px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<main>
+
+    <section class="hero">
+        <div class="marquee">
+            <div class="marquee-track">
+                <span>KOBE KOLOR&nbsp;&nbsp;&nbsp;</span>
+                <span>KOBE KOLOR&nbsp;&nbsp;&nbsp;</span>
+                <span>KOBE KOLOR&nbsp;&nbsp;&nbsp;</span>
+                <span>KOBE KOLOR&nbsp;&nbsp;&nbsp;</span>
+                <span>KOBE KOLOR&nbsp;&nbsp;&nbsp;</span>
+                <span>KOBE KOLOR&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+    </section>
+
+    <nav class="social-links">
+        <a href="https://www.youtube.com/" target="_blank">YOUTUBE</a>
+        <a href="https://open.spotify.com/" target="_blank">SPOTIFY</a>
+        <a href="https://www.instagram.com/" target="_blank">INSTAGRAM</a>
+    </nav>
+
+    <section class="mood-board">
+        <h2>MOOD BOARD</h2>
+
+        <div class="image-marquee">
+            <div class="image-track">
+
+                <div class="placeholder">IMAGE</div>
+                <div class="placeholder">IMAGE</div>
+                <div class="placeholder">IMAGE</div>
+                <div class="placeholder">IMAGE</div>
+                <div class="placeholder">IMAGE</div>
+                <div class="placeholder">IMAGE</div>
+                <div class="placeholder">IMAGE</div>
+                <div class="placeholder">IMAGE</div>
+
+            </div>
+        </div>
+
+        <a
+            class="pinterest-link"
+            href="https://pin.it/6JIwiapKD"
+            target="_blank">
+            VIEW MOOD BOARD →
+        </a>
+    </section>
+
+</main>
+</body>
+</html>
+
+
+
+
