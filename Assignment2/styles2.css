@@ -1,0 +1,478 @@
+ /* =========================
+   GENERAL PAGE
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  background: linear-gradient(
+    120deg,
+    #ff0000,
+    #ff7a00,
+    #ffe600,
+    #00b83d,
+    #008cff,
+    #4b00ff,
+    #9b00ff
+  );
+  background-size: 400% 400%;
+  animation: rainbow-background 18s ease infinite;
+}
+
+@keyframes rainbow-background {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+  width: 100%;
+  padding: 18px 30px;
+  text-align: center;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 12px;
+  font-family: Georgia, serif;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+  opacity: 0.6;
+}
+
+
+/* =========================
+   MAIN HERO / KOBE KOLOR
+========================= */
+
+.hero {
+  width: 100%;
+  overflow: hidden;
+  padding: 80px 0 70px;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: title-scroll 18s linear infinite;
+}
+
+.marquee-track span {
+  display: inline-block;
+  margin-right: 80px;
+
+  font-family: "Ole", cursive;
+  font-size: clamp(70px, 12vw, 180px);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: 2px;
+
+  color: #ffffff;
+
+  /* Original dimensional 3D effect */
+  text-shadow:
+    3px 3px 0 #bdbdbd,
+    6px 6px 0 #8a8a8a,
+    9px 9px 0 #555555,
+    14px 16px 18px rgba(0, 0, 0, 0.45);
+}
+
+@keyframes title-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0 25px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-2px);
+  opacity: 0.7;
+}
+
+
+/* =========================
+   SONGS LINK
+========================= */
+
+.songs-link {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 70px;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.songs-link:hover {
+  transform: translateY(-2px);
+  opacity: 0.7;
+}
+
+
+/* =========================
+   MOOD BOARD HEADING
+========================= */
+
+.mood-board {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0 70px;
+}
+
+.mood-board h2 {
+  margin: 0 0 45px;
+  text-align: center;
+
+  font-family: "Ole", cursive;
+  font-size: clamp(50px, 8vw, 110px);
+  font-weight: 400;
+  letter-spacing: 2px;
+
+  color: #ffffff;
+
+  /* Same clean 3D effect */
+  text-shadow:
+    3px 3px 0 #bdbdbd,
+    6px 6px 0 #8a8a8a,
+    9px 9px 0 #555555,
+    13px 15px 17px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================
+   IMAGE SLIDER
+========================= */
+
+.image-marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-track {
+  display: flex;
+  width: max-content;
+  gap: 25px;
+
+  animation: image-scroll 30s linear infinite;
+}
+
+.image-track img {
+  width: 220px;
+  height: 220px;
+
+  flex-shrink: 0;
+
+  object-fit: cover;
+
+  /* NO WHITE BORDER */
+  border: none;
+
+  /* Keep the depth underneath */
+  box-shadow:
+    0 12px 0 #111111,
+    0 18px 22px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes image-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================
+   PINTEREST BUTTON
+========================= */
+
+.pinterest-link {
+  display: block;
+  width: fit-content;
+  margin: 55px auto 70px;
+
+  padding: 12px 22px;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+
+  font-family: system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pinterest-link:hover {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+
+/* =========================
+   PROJECT LINK
+========================= */
+
+.project-link {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 70px;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-family: system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+
+  transition: opacity 0.3s ease;
+}
+
+.project-link:hover {
+  opacity: 0.65;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 30px 20px;
+  text-align: center;
+
+  color: #ffffff;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+}
+
+
+/* =========================
+   SONGS PAGE
+========================= */
+
+.spotify-main {
+  min-height: calc(100vh - 80px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 60px 20px;
+}
+
+.spotify-title {
+  margin: 20px 0 40px;
+
+  color: #ffffff;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(35px, 6vw, 70px);
+  font-weight: 700;
+
+  text-align: center;
+
+  text-shadow: 3px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.spotify-player {
+  width: min(700px, 92vw);
+  height: 600px;
+
+  overflow: hidden;
+
+  border: none;
+  border-radius: 16px;
+
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.45);
+}
+
+.spotify-player iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.back-home {
+  display: inline-block;
+  margin-top: 35px;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-family: system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+}
+
+.back-home:hover {
+  opacity: 0.65;
+}
+
+
+/* =========================
+   ABOUT / INFO PAGES
+========================= */
+
+.page-content {
+  width: min(850px, 90vw);
+  margin: 0 auto;
+  padding: 70px 0;
+  text-align: center;
+}
+
+.page-title {
+  margin-bottom: 40px;
+
+  font-family: "Ole", cursive;
+  font-size: clamp(55px, 9vw, 110px);
+  font-weight: 400;
+
+  color: #ffffff;
+
+  text-shadow:
+    3px 3px 0 #bdbdbd,
+    6px 6px 0 #8a8a8a,
+    9px 9px 0 #555555,
+    13px 15px 17px rgba(0, 0, 0, 0.4);
+}
+
+.page-text {
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.page-text p {
+  margin-bottom: 25px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  nav {
+    padding: 15px 10px;
+  }
+
+  nav li {
+    margin: 0 7px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+
+  .marquee-track span {
+    margin-right: 50px;
+  }
+
+  .social-links {
+    gap: 18px;
+  }
+
+  .image-track {
+    gap: 18px;
+  }
+
+  .image-track img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .spotify-player {
+    height: 520px;
+  }
+}
+
+
+
+
