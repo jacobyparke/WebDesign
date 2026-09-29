@@ -1,0 +1,847 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      120deg,
+      #ff0000,
+      #ff7a00,
+      #ffe600,
+      #00b83d,
+      #008cff,
+      #4b00ff,
+      #9b00ff
+    );
+
+  background-size: 400% 400%;
+  animation: rainbow-background 18s ease infinite;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: white;
+}
+
+@keyframes rainbow-background {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* =========================
+   STACKING ORDER
+   Keeps every real section of the page above the
+   dew layer, so drops only ever show over the bare
+   gradient background, never over cards, images, or text.
+========================= */
+
+body > *:not(.dew-layer) {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+
+  padding: 20px;
+
+  font-family: Georgia, serif;
+  font-size: 16px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  transition: opacity .2s ease;
+}
+
+nav a:hover {
+  opacity: .7;
+}
+
+nav i {
+  font-size: 15px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  width: 100%;
+  overflow: hidden;
+  padding: 30px 0 40px;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+
+  animation: text-scroll 25s linear infinite;
+}
+
+.marquee-track span {
+  font-family: "Ole", cursive;
+  font-size: clamp(80px, 15vw, 180px);
+  white-space: nowrap;
+
+  color: white;
+
+  text-shadow:
+    5px 5px 0 rgba(0,0,0,.18),
+    10px 10px 0 rgba(0,0,0,.12),
+    15px 15px 20px rgba(0,0,0,.16);
+
+  margin-right: 50px;
+}
+
+@keyframes text-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================
+   LIQUID GLASS CARD
+========================= */
+
+.card {
+  position: relative;
+  overflow: hidden;
+
+  padding: 12px;
+
+  background: rgba(255,255,255,.18);
+
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  border: 1px solid rgba(255,255,255,.38);
+
+  border-radius: 28px;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.5),
+    inset 0 -1px 1px rgba(0,0,0,.08),
+    0 15px 35px rgba(0,0,0,.15);
+}
+
+.card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.28),
+      transparent 35%,
+      rgba(255,255,255,.08)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   SOCIAL MEDIA TABLE
+========================= */
+
+.social-section {
+  width: 90%;
+  max-width: 850px;
+
+  margin: 0 auto 45px;
+}
+
+.social-table {
+  width: 100%;
+
+  border-collapse: separate;
+  border-spacing: 10px;
+
+  table-layout: fixed;
+}
+
+.social-table td {
+  text-align: center;
+  vertical-align: middle;
+
+  padding: 15px;
+
+  height: 85px;
+
+  background: rgba(255,255,255,.18);
+
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  border: 1px solid rgba(255,255,255,.38);
+
+  border-radius: 24px;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.5),
+    inset 0 -1px 1px rgba(0,0,0,.08),
+    0 12px 28px rgba(0,0,0,.14);
+}
+
+.social-table a {
+  width: 100%;
+  min-height: 55px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+}
+
+.social-table img {
+  width: 38px !important;
+  height: 38px !important;
+
+  max-width: 38px !important;
+  max-height: 38px !important;
+
+  object-fit: contain !important;
+
+  display: block !important;
+
+  margin: 0 auto !important;
+}
+
+
+/* =========================
+   SPOTIFY
+========================= */
+
+.spotify-section {
+  width: 90%;
+  max-width: 850px;
+
+  margin: 0 auto 55px;
+}
+
+.spotify-card {
+  padding: 20px;
+}
+
+.spotify-card h2 {
+  margin: 5px 0 18px;
+
+  font-family: "Ole", cursive;
+
+  font-size: 32px;
+
+  text-align: center;
+
+  text-shadow:
+    3px 3px 0 rgba(0,0,0,.16),
+    6px 6px 12px rgba(0,0,0,.12);
+}
+
+.spotify-card iframe {
+  display: block;
+
+  width: 100%;
+
+  border-radius: 18px;
+}
+
+
+/* =========================
+   MOOD BOARD
+========================= */
+
+.mood-board {
+  width: 100%;
+
+  overflow: hidden;
+
+  margin: 0 0 50px;
+}
+
+.image-marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.card-group {
+  display: flex;
+  width: max-content;
+
+  animation: image-scroll 40s linear infinite;
+}
+
+.card-group .card {
+  flex-shrink: 0;
+
+  width: 244px;
+
+  margin-right: 25px;
+
+  padding: 12px;
+
+  border-radius: 28px;
+
+  background: rgba(255,255,255,.20);
+
+  box-shadow:
+    0 18px 35px rgba(0,0,0,.18),
+    inset 0 1px 1px rgba(255,255,255,.5);
+}
+
+.card-group .card::before {
+  background:
+    radial-gradient(
+      circle at 25% 15%,
+      rgba(255,255,255,.38),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.18),
+      transparent 50%
+    );
+}
+
+.card-group .card img {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+
+  width: 220px;
+  height: 220px;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 18px rgba(0,0,0,.18);
+}
+
+@keyframes image-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================
+   PINTEREST
+========================= */
+
+.pinterest-section {
+  display: flex;
+  justify-content: center;
+
+  margin: 0 auto 50px;
+}
+
+.pinterest-button {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 15px 25px;
+
+  color: white;
+  text-decoration: none;
+
+  background: rgba(255,255,255,.18);
+
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  border: 1px solid rgba(255,255,255,.38);
+
+  border-radius: 24px;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.5),
+    0 12px 28px rgba(0,0,0,.14);
+
+  transition:
+    transform .2s ease,
+    background .2s ease;
+}
+
+.pinterest-button:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.25);
+}
+
+.pinterest-button img {
+  width: 22px;
+  height: 22px;
+
+  object-fit: contain;
+}
+
+
+/* =========================
+   PROJECT LINK
+========================= */
+
+.project-section {
+  text-align: center;
+
+  margin: 0 auto 55px;
+}
+
+.project-link {
+  color: white;
+
+  font-family: Georgia, serif;
+
+  text-decoration: none;
+
+  font-size: 15px;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section {
+  width: 90%;
+  max-width: 500px;
+
+  margin: 40px auto 30px;
+}
+
+.contact-card {
+  padding: 20px;
+}
+
+.contact-card h2 {
+  margin: 0 0 15px;
+
+  font-family: "Ole", cursive;
+
+  font-size: 28px;
+
+  text-align: center;
+
+  text-shadow:
+    2px 2px 0 rgba(0,0,0,.15),
+    4px 4px 8px rgba(0,0,0,.10);
+}
+
+.contact-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+
+  padding: 9px 12px;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  color: white;
+
+  background: rgba(255,255,255,.15);
+
+  border: 1px solid rgba(255,255,255,.35);
+
+  border-radius: 12px;
+
+  outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255,255,255,.82);
+}
+
+.contact-form textarea {
+  min-height: 90px;
+
+  resize: vertical;
+}
+
+.contact-form button {
+  align-self: center;
+
+  padding: 9px 18px;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  color: white;
+
+  background: rgba(255,255,255,.20);
+
+  border: 1px solid rgba(255,255,255,.4);
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+.contact-form button:hover {
+  background: rgba(255,255,255,.30);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+
+  padding: 25px 20px 35px;
+
+  font-family: Georgia, serif;
+
+  font-size: 13px;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+
+/* =========================
+   DEW / CONDENSATION
+   Sits fixed to the viewport at z-index: 1, one layer above
+   the body's own gradient background (which has no z-index
+   and always paints last-behind) but one layer below every
+   real element on the page (see "STACKING ORDER" above,
+   which puts all of body's direct children at z-index: 2).
+   That keeps drops visible only over the open gradient,
+   never crossing over cards, images, or text.
+========================= */
+
+.dew-layer {
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 1;
+
+  overflow: hidden;
+}
+
+.dew {
+  position: absolute;
+
+  top: -8vh;
+
+  width: var(--dew-size, 9px);
+
+  height: calc(var(--dew-size, 9px) * 1.25);
+
+  border-radius: 52% 48% 58% 42%;
+
+  background:
+    radial-gradient(
+      circle at 30% 23%,
+      rgba(255,255,255,1) 0 7%,
+      rgba(255,255,255,.55) 8% 17%,
+      transparent 18%
+    ),
+    radial-gradient(
+      circle at 62% 70%,
+      rgba(255,255,255,.22),
+      transparent 58%
+    );
+
+  border: 1px solid rgba(255,255,255,.6);
+
+  box-shadow:
+    inset -2px -3px 5px rgba(255,255,255,.2),
+    inset 2px 2px 4px rgba(255,255,255,.4),
+    0 2px 8px rgba(0,0,0,.2);
+
+  opacity: var(--dew-opacity, .55);
+
+  animation:
+    dew-drip var(--dew-speed, 28s) linear infinite;
+
+  animation-delay: var(--dew-delay, 0s);
+}
+
+.dew::after {
+  content: "";
+
+  position: absolute;
+
+  width: 32%;
+  height: 18%;
+
+  top: 17%;
+  left: 18%;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.9);
+
+  filter: blur(.4px);
+}
+
+/* Sizes now range from tiny beads to large drops, and every
+   drop is noticeably less see-through than before. */
+
+.dew:nth-child(1) {
+  left: 6%;
+  --dew-size: 4px;
+  --dew-speed: 30s;
+  --dew-delay: -5s;
+  --dew-opacity: .58;
+}
+
+.dew:nth-child(2) {
+  left: 15%;
+  --dew-size: 22px;
+  --dew-speed: 38s;
+  --dew-delay: -18s;
+  --dew-opacity: .42;
+}
+
+.dew:nth-child(3) {
+  left: 24%;
+  --dew-size: 3px;
+  --dew-speed: 22s;
+  --dew-delay: -9s;
+  --dew-opacity: .7;
+}
+
+.dew:nth-child(4) {
+  left: 34%;
+  --dew-size: 16px;
+  --dew-speed: 34s;
+  --dew-delay: -25s;
+  --dew-opacity: .5;
+}
+
+.dew:nth-child(5) {
+  left: 43%;
+  --dew-size: 8px;
+  --dew-speed: 26s;
+  --dew-delay: -12s;
+  --dew-opacity: .62;
+}
+
+.dew:nth-child(6) {
+  left: 52%;
+  --dew-size: 26px;
+  --dew-speed: 42s;
+  --dew-delay: -31s;
+  --dew-opacity: .4;
+}
+
+.dew:nth-child(7) {
+  left: 61%;
+  --dew-size: 6px;
+  --dew-speed: 28s;
+  --dew-delay: -16s;
+  --dew-opacity: .66;
+}
+
+.dew:nth-child(8) {
+  left: 69%;
+  --dew-size: 3px;
+  --dew-speed: 20s;
+  --dew-delay: -7s;
+  --dew-opacity: .74;
+}
+
+.dew:nth-child(9) {
+  left: 77%;
+  --dew-size: 19px;
+  --dew-speed: 37s;
+  --dew-delay: -22s;
+  --dew-opacity: .46;
+}
+
+.dew:nth-child(10) {
+  left: 85%;
+  --dew-size: 7px;
+  --dew-speed: 25s;
+  --dew-delay: -14s;
+  --dew-opacity: .6;
+}
+
+.dew:nth-child(11) {
+  left: 92%;
+  --dew-size: 13px;
+  --dew-speed: 33s;
+  --dew-delay: -27s;
+  --dew-opacity: .52;
+}
+
+.dew:nth-child(12) {
+  left: 97%;
+  --dew-size: 5px;
+  --dew-speed: 24s;
+  --dew-delay: -3s;
+  --dew-opacity: .64;
+}
+
+@keyframes dew-drip {
+  0% {
+    transform: translateY(-10vh) translateX(0) scale(.9);
+  }
+
+  25% {
+    transform: translateY(25vh) translateX(2px) scale(1);
+  }
+
+  50% {
+    transform: translateY(55vh) translateX(-2px) scale(1.03);
+  }
+
+  75% {
+    transform: translateY(82vh) translateX(2px) scale(.98);
+  }
+
+  100% {
+    transform: translateY(115vh) translateX(-1px) scale(.92);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  nav {
+    gap: 18px;
+
+    font-size: 14px;
+  }
+
+  .hero {
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+
+  .marquee-track span {
+    font-size: 80px;
+  }
+
+  .social-section,
+  .spotify-section,
+  .contact-section {
+    width: 92%;
+  }
+
+  .social-table {
+    border-spacing: 6px;
+  }
+
+  .social-table td {
+    height: 70px;
+
+    padding: 8px;
+  }
+
+  .social-table img {
+    width: 30px !important;
+    height: 30px !important;
+
+    max-width: 30px !important;
+    max-height: 30px !important;
+  }
+
+  .spotify-card {
+    padding: 12px;
+  }
+
+  .spotify-card h2 {
+    font-size: 26px;
+  }
+
+  .card-group .card {
+    width: 220px;
+  }
+
+  .card-group .card img {
+    width: 196px;
+    height: 196px;
+  }
+
+  .contact-card {
+    padding: 15px;
+  }
+
+  .contact-card h2 {
+    font-size: 25px;
+  }
+}
