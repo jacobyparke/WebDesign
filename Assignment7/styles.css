@@ -1,0 +1,118 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #00cc7a; /* Green background for homepage */
+    color: #cc7a00; /* Orange text for homepage */
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+.logo img {
+    width: 100px; /* Adjust the size of the logo */
+    height: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.logo h1 {
+    font-size: 3em; /* Larger heading */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.logo p {
+    font-size: 1.2em; /* Adjusted description size */
+}
+
+.highlights {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.highlights h2 {
+    font-size: 2em; /* Larger highlight headings */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* 3D shadow effect */
+}
+
+.flexbox-container {
+    display: flex;
+    flex-direction: column; /* Arrange highlights vertically */
+    align-items: center; /* Center align */
+    margin: 20px 0;
+}
+
+.highlight {
+    margin: 10px 0; /* Vertical spacing */
+}
+
+.highlight img {
+    width: 150px; /* Square size */
+    height: 150px; /* Square size */
+}
+
+.more-info {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #00cc7a; /* Green text for links */
+    background-color: #cc7a00; /* Orange background for buttons */
+    padding: 5px 10px;
+}
+
+.contact-form {
+    margin: 20px;
+    text-align: center;
+}
+
+.contact-box {
+    background-color: #cc7a00; /* Orange background for contact box */
+    padding: 10px;
+    border-radius: 10px;
+    width: 250px; /* Smaller and cuter */
+    margin: 0 auto; /* Center the box */
+    color: #00cc7a; /* Green text for better legibility */
+}
+
+.contact-box h2 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* 3D shadow effect */
+}
+
+.contact-form form {
+    display: grid;
+    gap: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Styles for More Info Pages */
+.more-info-page {
+    background-color: #cc7a00; /* Orange background for more info pages */
+    color: #00cc7a; /* inverted text font*/
+}
+
+.more-info-page h1, .more-info-page p {
+    color: #00cc7a; /* Ensure text is legible against the orange background */
+}
+
+/* More Info Boxes */
+.more-info-box {
+    background-color: #cc7a00; /* Orange background for more info boxes */
+    color: #00cc7a; /* Green text for better legibility */
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0; /* Spacing between boxes */
+}
